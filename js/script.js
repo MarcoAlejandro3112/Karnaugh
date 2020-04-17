@@ -16,6 +16,10 @@ function a(arg){
 	} else {
 		if(arg == "AC"){
 			screen.value = "";
+			state = "";
+		}
+		if(arg == "DEL"){
+			
 		}
 	}
 }
