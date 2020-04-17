@@ -1,0 +1,49 @@
+html{
+	box-sizing: border-box;
+}
+*,*:after,*:before{
+	box-sizing: inherit;
+}
+
+header{
+	background-color: black;
+}
+header nav{
+	padding: 1rem 4rem;
+}
+header nav h1{
+	color:#fff;
+	font-size: 2rem;
+	font-family: "Oswald",sans-serif;
+	text-transform: uppercase;
+}
+main{
+	padding: 4rem;
+}
+.boxForm{
+	width: 50%;
+}
+.boxForm form {
+	width: 70%;
+	border: 1px solid #000;
+}
+.boxForm form .screen{
+	width: 100%;
+	padding: 2rem;
+}
+.boxForm form input[type="button"]{
+	width: 24.3%;
+	font-size: 2rem;
+	padding: 1rem;
+	font-family: "Roboto",sans-serif;
+}
+.pad2{
+	width: 49.5%!important;
+}
+.equal{
+	width: 74.5%!important;
+	background-color: #A93226;
+	color:#fff;
+
+	border: none;
+}
