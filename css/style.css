@@ -32,7 +32,7 @@ main{
 	padding: 2rem;
 }
 .boxForm form input[type="button"]{
-	width: 24.3%;
+	width: 32.6%;
 	font-size: 2rem;
 	padding: 1rem;
 	font-family: "Roboto",sans-serif;
@@ -41,7 +41,7 @@ main{
 	width: 49.5%!important;
 }
 .equal{
-	width: 74.5%!important;
+	width: 100%!important;
 	background-color: #A93226;
 	color:#fff;
 
