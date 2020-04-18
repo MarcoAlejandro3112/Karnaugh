@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<script src="js/script.js"></script>
 	<header>
 		<nav>
 			<h1>Karnaugh</h1>
@@ -32,7 +33,41 @@
 				<input class="equal" onclick="a('=')" type="button" value="=">
 			</form>
 		</div>
+		<div class="tables">
+			<div class="column">
+				<ul id="ulP">
+					<li>P</li>
+					<script>
+						mostrarF('p');
+					</script>
+				</ul>
+				<ul id="ulQ">
+					<li>Q</li>
+					<script>
+						mostrarF('q');
+					</script>
+				</ul>
+				<ul id="ulR">
+					<li>R</li>
+					<script>
+						mostrarF('r');
+					</script>
+				</ul>
+				<ul id="ulS">
+					<li>S</li>
+					<script>
+						mostrarF('s');
+					</script>
+				</ul>
+				<ul>
+					<li>FUNC</li>
+					<script>
+						res();
+					</script>
+				</ul>
+			</div>
+		</div>
 	</main>
-	<script src="js/script.js"></script>
+	
 </body>
 </html>

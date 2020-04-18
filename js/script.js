@@ -1,5 +1,9 @@
 let screen = document.getElementById("screen");
 let state = "";
+ 
+const ulQ = document.getElementById("ulQ"); 
+const ulR = document.getElementById("ulR"); 
+const ulS = document.getElementById("ulS"); 
 function sePuede(arg){
 	if(state == "" || state == "v" || state == "~" || state == "^" || 
 	state == "→" || state == "↔"){
@@ -24,4 +28,24 @@ function a(arg){
 			state = screen.value.substr(screen.value.length-1,screen.value.length);;
 		}
 	}
+}
+
+function mostrarF(arg){
+	/*<ul>
+					<li>P</li>
+					<script>
+						mostrarP();
+					</script>
+				</ul>*/
+	const ulP = document.getElementById("ulP");
+	for(i = 0;i<9;i++){
+		let li = document.createElement("li");
+		ulP.appendChild(li);
+		li.appendChild(document.createTextNode("V"));
+
+	}
+}
+
+function res(){
+
 }
