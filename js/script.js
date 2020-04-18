@@ -19,7 +19,9 @@ function a(arg){
 			state = "";
 		}
 		if(arg == "DEL"){
-			
+			let nScreen = screen.value.substr(0,screen.value.length-1);
+			screen.value = nScreen;
+			state = screen.value.substr(screen.value.length-1,screen.value.length);;
 		}
 	}
 }
