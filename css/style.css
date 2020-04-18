@@ -7,9 +7,12 @@ html{
 
 header{
 	background-color: black;
+	display: flex;
+	justify-content: center;
 }
 header nav{
-	padding: 1rem 4rem;
+	width: 80%;
+	padding:2rem 0rem;
 }
 header nav h1{
 	color:#fff;
@@ -19,9 +22,17 @@ header nav h1{
 }
 main{
 	padding: 4rem;
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+}
+main div{
+	display: flex;
+	justify-content: center;
 }
 .boxForm{
 	width: 50%;
+	margin:0 auto;
 }
 .boxForm form {
 	width: 70%;
@@ -32,7 +43,7 @@ main{
 	padding: 2rem;
 }
 .boxForm form input[type="button"]{
-	width: 24.3%;
+	width: 32.6%;
 	font-size: 2rem;
 	padding: 1rem;
 	font-family: "Roboto",sans-serif;
@@ -41,9 +52,21 @@ main{
 	width: 49.5%!important;
 }
 .equal{
-	width: 74.5%!important;
+	width: 100%!important;
 	background-color: #A93226;
 	color:#fff;
 
 	border: none;
+}
+.tables{
+	width: 50%;
+}
+.column{
+	text-align: center;
+	font-family: "Roboto",sans-serif;
+}
+.column ul li{
+	padding: 1rem;
+	font-size: 1.7rem;
+	border: 1px solid #000;
 }
