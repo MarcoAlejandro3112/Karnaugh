@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 let screen = document.getElementById("screen");
 let state = "";
 
@@ -47,4 +45,3 @@ function mostrarF(arg){
 function res(){
 
 }
->>>>>>> Stashed changes
