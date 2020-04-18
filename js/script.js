@@ -32,10 +32,15 @@ function mostrarF(arg){
 	const ulQ = document.getElementById("ulQ"); 
 	const ulR = document.getElementById("ulR"); 
 	const ulS = document.getElementById("ulS");
-	if(ulP = ""){
+	if(!(document.getElementById("valor"))) {
 		for(i = 0;i<9;i++){
+
 			let li = document.createElement("li");
-			ulP.appendChild(li);
+			li.id = "valor";
+			if(arg == 'p') {ulP.appendChild(li);}
+			if(arg == 'q') {ulQ.appendChild(li);}
+			if(arg == 'r') {ulR.appendChild(li);}
+			if(arg == 's') {ulS.appendChild(li);}
 			li.appendChild(document.createTextNode("V"));
 
 		}
