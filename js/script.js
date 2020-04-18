@@ -11,6 +11,12 @@ function sePuede(arg){
 }
 
 function a(arg){ 
+	if(arg == "="){
+			if(screen.value.indexOf("p") != -1){ mostrarF('p');}
+			if(screen.value.indexOf("q") != -1){ mostrarF('q');}
+			if(screen.value.indexOf("r") != -1){ mostrarF('r');}
+			if(screen.value.indexOf("s") != -1){ mostrarF('s');}
+	}
 	if(sePuede(arg) && arg != "=" && arg != "AC" && arg != "DEL"){
 		screen.value += arg;
 		state = arg;
@@ -24,27 +30,20 @@ function a(arg){
 			screen.value = nScreen;
 			state = screen.value.substr(screen.value.length-1,screen.value.length);;
 		}
+		
 	}
+
 }
 
 function mostrarF(arg){
-	const ulP = document.getElementById("ulP");
-	const ulQ = document.getElementById("ulQ"); 
-	const ulR = document.getElementById("ulR"); 
-	const ulS = document.getElementById("ulS");
-	if(!(document.getElementById("valor"))) {
-		for(i = 0;i<9;i++){
-
+	const ul = (arg == 'p') ? document.getElementById("ulP") : (arg == 'q') 
+	? document.getElementById("ulQ") : (arg == 'r') ? document.getElementById("ulR") :
+	 document.getElementById("ulS");  
+		for(i = 0;i<8;i++){
 			let li = document.createElement("li");
-			li.id = "valor";
-			if(arg == 'p') {ulP.appendChild(li);}
-			if(arg == 'q') {ulQ.appendChild(li);}
-			if(arg == 'r') {ulR.appendChild(li);}
-			if(arg == 's') {ulS.appendChild(li);}
+			ul.appendChild(li);
 			li.appendChild(document.createTextNode("V"));
-
 		}
-	}
 }
 
 function res(){
