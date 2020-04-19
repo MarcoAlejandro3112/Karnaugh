@@ -41,7 +41,7 @@ main{
 	padding: 4rem;
 	display: flex;
 	flex-flow: row;
-	align-items: center;
+	align-items: top;
 }
 main div{
 	display: flex;
