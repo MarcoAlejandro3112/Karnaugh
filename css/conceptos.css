@@ -1,0 +1,39 @@
+html{
+	box-sizing: border-box;
+}
+*,*:after,*:before{
+	box-sizing: inherit;
+}
+        header{
+            background-color: black;
+            display: flex;
+            justify-content: center;
+        }
+        header nav{
+            width: 80%;
+            padding:2rem 0rem;
+            justify-content: center;
+        }
+        header nav h1{
+            color:#fff;
+            font-size: 2rem;
+            font-family: "Oswald",sans-serif;
+            text-transform: uppercase;
+            text-decoration: underline;
+        }
+        header nav{
+            display: flex;
+            flex-flow:row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav ul li{
+            display: block;
+        }
+        header nav ul li a{
+            font-family: "Oswald",sans-serif;
+            color:#fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+        }
