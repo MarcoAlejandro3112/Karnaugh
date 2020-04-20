@@ -27,6 +27,10 @@ header nav ul{
 	justify-content: space-between;
 	align-items: center;
 }
+header nav ul li:hover,h1:hover{
+	opacity: 0.8;
+	cursor: pointer;
+}
 header nav ul li{
 	display: block;
 }
@@ -74,6 +78,10 @@ main div{
 	padding: 1rem;
 	font-family: "Roboto",sans-serif;
 }
+
+.boxForm form input:hover{
+	opacity: 0.8;
+}
 .pad,.pad2{
 	background-color:#2B2D2E;
 	color:#fff;
@@ -92,6 +100,7 @@ main div{
 .tables{
 	width: 50%;
 	height: 50vh;
+	border:1px solid #000;
 	overflow-y: scroll;
 }
 .column{
@@ -102,4 +111,6 @@ main div{
 	padding: 0.8rem;
 	font-size: 1.5rem;
 	border: 1px solid #000;
+	background-color: #2B2D2E;
+	color:#fff;
 }
