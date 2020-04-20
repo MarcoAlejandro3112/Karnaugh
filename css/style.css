@@ -77,6 +77,8 @@ main div{
 }
 .tables{
 	width: 50%;
+	height: 50vh;
+	overflow-y: scroll;
 }
 .column{
 	text-align: center;
