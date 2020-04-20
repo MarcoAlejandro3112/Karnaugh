@@ -6,24 +6,24 @@ html{
 }
 
 header{
-	background-color: black;
+	background-color: #A93226;
 	display: flex;
 	justify-content: center;
 }
 header nav{
-	width: 80%;
-	padding:2rem 0rem;
+	width: 90%;
+	padding:1rem 0rem;
 }
 header nav h1{
 	color:#fff;
 	font-size: 2rem;
 	font-family: "Oswald",sans-serif;
 	text-transform: uppercase;
-	text-decoration: underline;
 }
-header nav{
+
+header nav ul{
 	display: flex;
-	flex-flow:row;
+	flex-flow: row;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -38,14 +38,15 @@ header nav ul li a{
 	font-size: 1.5rem;
 }
 main{
-	padding: 4rem;
+	width: 90%;
+	padding: 4rem 0rem;
 	display: flex;
 	flex-flow: row;
 	align-items: top;
+	margin:0 auto;
 }
 main div{
 	display: flex;
-	justify-content: center;
 }
 .boxForm{
 	width: 50%;
@@ -59,14 +60,27 @@ main div{
 	width: 100%;
 	padding: 2rem;
 }
+.grayB{
+	background-color:#D35400;
+	border: 1px solid #6E2C00;
+}
 .boxForm form input[type="button"]{
-	width: 32.6%;
+	width: 33.3333%;
 	font-size: 2rem;
+	float:left;
+	display: block;
+	
+	color:#fff;
 	padding: 1rem;
 	font-family: "Roboto",sans-serif;
 }
+.pad,.pad2{
+	background-color:#2B2D2E;
+	color:#fff;
+	border:1px solid #000;
+}
 .pad2{
-	width: 49.5%!important;
+	width: 50%!important;
 }
 .equal{
 	width: 100%!important;
