@@ -58,7 +58,6 @@ main div{
 }
 .boxForm form {
 	width: 70%;
-	border: 1px solid #000;
 }
 .boxForm form .screen{
 	width: 100%;
@@ -99,14 +98,22 @@ main div{
 }
 .tables{
 	width: 50%;
-	height: 50vh;
+	max-height: 70vh;
 	border:1px solid #000;
 	overflow-y: scroll;
 }
 .column{
+	width: 100%;
 	text-align: center;
 	font-family: "Roboto",sans-serif;
 }
+.func {
+	width: 50%!important;
+}
+.column ul {
+	width: 12.5%;
+}
+
 .column ul li{
 	padding: 0.8rem;
 	font-size: 1.5rem;
