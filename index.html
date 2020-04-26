@@ -5,11 +5,13 @@
 	<title>Karnaugh</title>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	
+	<!--Cabecera de la página
+	===========================================================-->
 	<header>
 		<nav>
 			<ul>
@@ -18,58 +20,56 @@
 			</ul>
 		</nav>
 	</header>
+	<!--CONTENIDO PRINCIPAL
+	===========================================================-->
 	<main>
-		<div class="boxForm">
+		<!--FORMULARIO
+		===========-->
+		<div class="cajaFormulario">
 			<form action="">
 				<input class="screen" id="screen" type="text" disabled="">
-				<input type="button" onclick="mostrarEnPantalla('AC')" class="pad2" value="AC">
-				<input type="button" onclick="mostrarEnPantalla('DEL')" class="pad2" value="DEL">
-				<input type="button" onclick="mostrarEnPantalla('p')" class="grayB" value="p">
-				<input type="button" onclick="mostrarEnPantalla('q')" class="grayB" value="q">
-				<input type="button" onclick="mostrarEnPantalla('r')" class="grayB" value="r">
-				<input type="button" onclick="mostrarEnPantalla('s')" class="grayB" value="s">
-				<input type="button" onclick="mostrarEnPantalla('(')" class="grayB" value="(">
-				<input type="button" onclick="mostrarEnPantalla(')')" class="grayB" value=")">
-				<input type="button" onclick="mostrarEnPantalla('~')" class="grayB" value="~">
-				<input type="button" onclick="mostrarEnPantalla('v')" class="grayB" value="v">
-				<input type="button" onclick="mostrarEnPantalla('^')" class="grayB" value="^">
-				<input type="button" onclick="mostrarEnPantalla('→')" class="grayB" value="→">
-				<input type="button" onclick="mostrarEnPantalla('↔')" class="grayB" value="↔">
+				<input type="button" onclick="mostrarEnPantalla('AC')" class="negro" value="AC">
+				<input type="button" onclick="mostrarEnPantalla('DEL')" class="negro" value="DEL">
+				<input type="button" onclick="mostrarEnPantalla('p')" class="orange" value="p">
+				<input type="button" onclick="mostrarEnPantalla('q')" class="orange" value="q">
+				<input type="button" onclick="mostrarEnPantalla('r')" class="orange" value="r">
+				<input type="button" onclick="mostrarEnPantalla('s')" class="orange" value="s">
+				<input type="button" onclick="mostrarEnPantalla('(')" class="orange" value="(">
+				<input type="button" onclick="mostrarEnPantalla(')')" class="orange" value=")">
+				<input type="button" onclick="mostrarEnPantalla('~')" class="orange" value="~">
+				<input type="button" onclick="mostrarEnPantalla('v')" class="orange" value="v">
+				<input type="button" onclick="mostrarEnPantalla('^')" class="orange" value="^">
+				<input type="button" onclick="mostrarEnPantalla('→')" class="orange" value="→">
+				<input type="button" onclick="mostrarEnPantalla('↔')" class="orange" value="↔">
 				<input class="equal" onclick="mostrarEnPantalla('=')" type="button" value="=">
 			</form>
-		</div>
-		<div class="tables">
-			<div class="column">
-				<ul id="ulP">
-					<li>P</li>
-					<!--<script>
-						mostrarF('p');
-					</script>-->
-				</ul>
-				<ul id="ulQ">
-					<li>Q</li>
-					<!--<script>
-						mostrarF('q');
-					</script>-->
-				</ul>
+		</div><!--/FORMULARIO-->
+		<div>
+			<!--TABLAS DE VERDAD
+			=================-->
+			<div class="tablasDeVerdad">
+				<div class="primeraFila">
+					<ul id="ulP">
+						<li>P</li>	
+					</ul>
+					<ul id="ulQ">
+						<li>Q</li>		
+					</ul>
 				<ul id="ulR">
-					<li>R</li>
-					<!--<script>
-						mostrarF('r');
-					</script>-->
-				</ul>
-				<ul id="ulS">
-					<li>S</li>
-					<!--<script>
-						mostrarF('s');
-					</script>-->
-				</ul>
-				<ul id="ulFUNC" class="func">
-					<li>FUNC</li>
-					<!--<script>
-						res();
-					</script>-->
-				</ul>
+						<li>R</li>			
+					</ul>
+					<ul id="ulS">
+						<li>S</li>			
+					</ul>
+					<ul id="ulFUNC" class="func">
+						<li>FUNC</li>
+					</ul>
+				</div>
+			</div>
+			<!--BOTON DE MAPA KARNAUGH
+				===================-->
+			<div class="cajaBotonKarnaugh">
+				<a href="#">Ver Mapa De Karnaugh</a>
 			</div>
 		</div>
 	</main>

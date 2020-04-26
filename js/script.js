@@ -8,16 +8,13 @@ var	ValoresR = [];
 var	ValoresS = [];
 
 
-function sePuede(arg){
-	if(arg == "(" || arg == ")"){
-		return (state != "p" || state != "q" || state != "r" || state != "s");
-	}
-	//Caso que no sea parentesis
-	if(state == "" || state == "v" || state == "~" || state == "^" || 
-	state == "→" || state == "↔" || state == "("){
-		return (arg == "p" || arg == "q" || arg == "r" || arg == "s");
+sePuede = (arg) =>{
+	console.log("state: " + state);
+	if(state == "" || state == "v" || state == "^" || 
+	state == "→" || state == "↔" || state == "~"){
+		return (arg == "p" || arg == "q" || arg == "r" || arg == "s" || arg == "(" || arg == "~");
 	} else {
-		return (arg != "p" || arg != "q" || arg != "r" || arg != "s");
+		return (arg == "p" || arg == "q" || arg == "r" || arg == "s") ? false : true;
 	}
 }
 
