@@ -2,7 +2,10 @@ let screen = document.getElementById("screen");
 let state = "";
 let contador = 0;
 let Pos = [0,0,0,0];
-
+var ValoresP = [];
+var	ValoresQ = [];
+var	ValoresR = [];
+var	ValoresS = [];
 
 
 function sePuede(arg){
@@ -77,13 +80,31 @@ function cambiarContador(arg){
 function Contador(){
 	return contador;
 }
-function imprimirPatron(pos,size,element,i){
+function imprimirPatron(pos,size,element,i,variable){
 		cambiarContador(Contador() + 1);
 		if(Contador() > 0){
-			element.className = "V";
+			switch(variable){
+				case 'p' : ValoresP.push(1);
+				break;
+				case 'q' : ValoresQ.push(1);
+				break;
+				case 'r' : ValoresR.push(1);
+				break;
+				case 's' : ValoresS.push(1);
+				break;
+			}
 			element.appendChild(document.createTextNode("V"));
 		} else {
-			element.className = "F";
+			switch(variable){
+				case 'p' : ValoresP.push(0);
+				break;
+				case 'q' : ValoresQ.push(0);
+				break;
+				case 'r' : ValoresR.push(0);
+				break;
+				case 's' : ValoresS.push(0);
+				break;
+			}
 			element.appendChild(document.createTextNode("F"));
 		}
 		if(Contador() == size/(Math.pow(2,pos))){
@@ -108,73 +129,72 @@ function mostrarF(arg){
 			li.id = arg;
 			if(arg == 'p'){
 				cambiarPos(0,1);
-				imprimirPatron(pos()[0],size,li,i);
+				imprimirPatron(pos()[0],size,li,i,'p');
 			}
-			if(arg == 'q'){
+			else if(arg == 'q'){
 				((pos().indexOf(1)) != -1 && pos().indexOf(1) != 1) ? cambiarPos(1,2) : cambiarPos(1,1);
 				
-				imprimirPatron(pos()[1],size,li,i);
+				imprimirPatron(pos()[1],size,li,i,'q');
 			}
-			if(arg == 'r'){
+			else if(arg == 'r'){
 				(pos().indexOf(2) != -1 && pos().indexOf(2) != 2) ? cambiarPos(2,3) : (pos().indexOf(1) != -1 && pos().indexOf(1) != 2) ? cambiarPos(2,2) : cambiarPos(2,1);
-				imprimirPatron(pos()[2],size,li,i);
+				imprimirPatron(pos()[2],size,li,i,'r');
 			}
-			if(arg == 's'){
+			else if(arg == 's'){
 				(pos().indexOf(3) != -1 && pos().indexOf(3) != 3) ? cambiarPos(3,4) : (pos().indexOf(2) != -1 && pos().indexOf(2) != 3) ? cambiarPos(3,3) : 
 				(pos().indexOf(1) != -1 && pos().indexOf(1) != 3) ? cambiarPos(3,2) : cambiarPos(3,1);
-				imprimirPatron(pos()[3],size,li,i);
+				imprimirPatron(pos()[3],size,li,i,'s');
 			}
 			ul.appendChild(li);
 		}
 		cambiarContador(0);
 }
 
-function O(a,b){
-	let a1 = (a == "V") ? true : false;
-	let b1 = (b == "V") ? true : false;
-	return (a1 || b1) ? "V" : "F";
+resetearValores = () => {
+	ValoresP = [];
+	ValoresQ = [];
+	ValoresS = [];
+	ValoresR = [];
 }
-
-function Y(a,b){
-	let a1 = (a == "V") ? true : false;
-	let b1 = (b == "V") ? true : false;
-	return (a1 && b1) ? "V" : "F";
+resolverOperacion = (enunciado,posicionFila) => {
+	let arrAux = enunciado.split("");
+	console.log("Valores Q: " + ValoresQ);
+	for(i = 0;i<enunciado.length;i++){
+		if(arrAux[i] == "p" || arrAux[i] == "q" || arrAux[i] == "r" || arrAux[i] == "s"){
+			let valores = (arrAux[i] == "p") ? ValoresP : (arrAux[i] == "q") ? ValoresQ : (arrAux[i] == "r") ? ValoresR : ValoresS;
+			console.log("Valores: " + valores);
+			arrAux[i] = valores[posicionFila];
+		} else if (arrAux[i] != "(" && arrAux[i] != ")"){
+			if(arrAux[i] == "v"){
+				arrAux[i] = " || ";
+			} else if(arrAux[i] == "^"){
+				arrAux[i] = " && ";
+			} else if(arrAux[i] == "~"){
+				arrAux[i] = " !";
+			} else if(arrAux[i] == "→"){
+				arrAux[i - 1] = (!parseInt(arrAux[i - 1])).toString();
+				arrAux[i] = " || ";
+			} else if(arrAux[i] == "↔"){
+				
+			}
+		}
+	}
+	console.log(arrAux);
+	let nuevoEnunciado = arrAux.join("");
+	return (eval(nuevoEnunciado)) ? "V" : "F";
 }
-
+mostrarResultados = () => {
+	for(let i = 0;i<(Math.pow(2,cuantasVar()));i++){
+		let ulF = document.getElementById("ulFUNC");
+		let liF = document.createElement("li");
+		liF.id = "func";
+		liF.appendChild(document.createTextNode(resolverOperacion(screen.value,i)));
+		ulF.appendChild(liF);	
+	}
+}
 function res(){
 	cambiarPos(5,5);
-	let cont = 0;
-	let variables = new Stack();
-	let funciones = new Stack();
-	for(i = 0;i<screen.value.length;i++){
-	if(screen.value[i] == 'p' || screen.value[i] == 'q' || screen.value[i] == 'r' || screen.value[i] == 's'){
-		console.log(screen.value[i]);
-		variables.push(screen.value[i]);
-		cont++;
-		if(cont % 2 != 0 && cont != 1){
-				console.log("Stack Variables: " + variables.peek());
-				let b = variables.peek();variables.pop();
-				let a = variables.peek();variables.pop();
-				let ulB = document.getElementById("ul" + b.toUpperCase()).childNodes;
-				let ulA = document.getElementById("ul" + a.toUpperCase()).childNodes;
-				console.log("A: " + a + " B: " + b);
-				for(i = 5;i<=(Math.pow(2,cuantasVar()))+ 4;i++){
-					if(funciones.peek() == "v"){
-						let ulF = document.getElementById("ulFUNC");
-						let liF = document.createElement("li");
-						liF.id = "func";
-						liF.appendChild(document.createTextNode(O(ulA[i].className,ulB[i].className).toString()));
-						variables.push(O(ulA[i].className,ulB[i].className));
-						ulF.appendChild(liF);
-					}
-				}
-		}
-	} else{
-			funciones.push(screen.value[i]);
-			console.log("Funciones: " + funciones.peek());
-			cont++;
-		}
-		console.log("Cont: " + cont);
-	}
-	
+	mostrarResultados();
+	console.log(eval("0 && 1 || (!1 || 0)"));
+	resetearValores();
 }
