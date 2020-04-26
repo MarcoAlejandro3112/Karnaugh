@@ -172,15 +172,27 @@ resolverOperacion = (enunciado,posicionFila) => {
 			} else if(arrAux[i] == "~"){
 				arrAux[i] = " !";
 			} else if(arrAux[i] == "→"){
-				arrAux[i - 1] = (!parseInt(arrAux[i - 1])).toString();
+				arrAux[i - 1] += ")";
+				for(let j = 2;j<=i;j++){
+					if(arrAux[i - j] == ")" || j == i){
+						arrAux[i - j] = "!(" + arrAux[i-j];
+					}
+				}
 				arrAux[i] = " || ";
 			} else if(arrAux[i] == "↔"){
-				
+				let valoresAUX = (arrAux[i + 1] == "p") ? ValoresP : (arrAux[i + 1] == "q") ? ValoresQ : (arrAux[i + 1] == "r") ? ValoresR : ValoresS;
+				let aux = arrAux[i-1];
+				arrAux[i-1] = ("(" + arrAux[i-1] + " && " + valoresAUX[posicionFila] + ")").toString();
+				arrAux[i] = "||";
+				arrAux[i+1] = ("(" + "!" + aux + "&&" + " !" + valoresAUX[posicionFila] + ")").toString();
+				i++;
+
 			}
 		}
 	}
 	console.log(arrAux);
 	let nuevoEnunciado = arrAux.join("");
+	console.log("ENUNCIADO: " + nuevoEnunciado);
 	return (eval(nuevoEnunciado)) ? "V" : "F";
 }
 mostrarResultados = () => {
@@ -195,6 +207,7 @@ mostrarResultados = () => {
 function res(){
 	cambiarPos(5,5);
 	mostrarResultados();
-	console.log(eval("0 && 1 || (!1 || 0)"));
+
+
 	resetearValores();
 }
