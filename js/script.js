@@ -11,7 +11,7 @@ var	ValoresS = [];
 sePuede = (arg) =>{
 	console.log("state: " + state);
 	if(state == "" || state == "v" || state == "^" || 
-	state == "→" || state == "↔" || state == "~"){
+	state == "→" || state == "↔" || state == "~" || state == "("){
 		return (arg == "p" || arg == "q" || arg == "r" || arg == "s" || arg == "(" || arg == "~");
 	} else {
 		return (arg == "p" || arg == "q" || arg == "r" || arg == "s") ? false : true;
@@ -169,19 +169,31 @@ resolverOperacion = (enunciado,posicionFila) => {
 			} else if(arrAux[i] == "~"){
 				arrAux[i] = " !";
 			} else if(arrAux[i] == "→"){
-				arrAux[i - 1] += ")";
-				for(let j = 0;j<=i;j++){
-					if(arrAux[i - j] == ")" || j == i){
-						arrAux[i - j] = "!(" + arrAux[i-j];
+				if(arrAux[i - 2] != "(" && i - 1 > 1){
+					arrAux[i - 1] += ")";
+				}
+				if((arrAux[i - 1]).toString().indexOf(")") != -1){
+					for(let j = 0;j<=i;j++){
+						if(arrAux[i - j] == ")" || j == i ){
+							arrAux[i - j] = "!(" + arrAux[i-j];
+						}
 					}
+				} else {
+					arrAux[i-1] = "!" + arrAux[i-1];
 				}
 				arrAux[i] = " || ";
 			} else if(arrAux[i] == "↔"){
-				arrAux[i - 1] += ")";
-				for(let j = 0;j<=i;j++){
-					if(arrAux[i - j] == ")" || j == i){
-						arrAux[i - j] = "!(" + arrAux[i-j];
+				if(arrAux[i - 2] != "(" && i - 1 > 1){
+					arrAux[i - 1] += ")";
+				}
+				if((arrAux[i - 1]).toString().indexOf(")") != -1){
+					for(let j = 0;j<=i;j++){
+						if(arrAux[i - j] == ")" || j == i ){
+							arrAux[i - j] = "!(" + arrAux[i-j];
+						}
 					}
+				} else {
+					arrAux[i-1] = "!" + arrAux[i-1];
 				}
 				arrAux[i] = "^";
 			}
