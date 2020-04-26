@@ -90,11 +90,9 @@ main div{
 	width: 50%!important;
 }
 .equal{
-	width: 100%!important;
 	background-color: #A93226;
 	color:#fff;
-
-	border: none;
+	border:1px solid #000;
 }
 .tables{
 	width: 50%;
