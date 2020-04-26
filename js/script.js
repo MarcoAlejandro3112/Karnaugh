@@ -173,20 +173,20 @@ resolverOperacion = (enunciado,posicionFila) => {
 				arrAux[i] = " !";
 			} else if(arrAux[i] == "→"){
 				arrAux[i - 1] += ")";
-				for(let j = 2;j<=i;j++){
+				for(let j = 0;j<=i;j++){
 					if(arrAux[i - j] == ")" || j == i){
 						arrAux[i - j] = "!(" + arrAux[i-j];
 					}
 				}
 				arrAux[i] = " || ";
 			} else if(arrAux[i] == "↔"){
-				let valoresAUX = (arrAux[i + 1] == "p") ? ValoresP : (arrAux[i + 1] == "q") ? ValoresQ : (arrAux[i + 1] == "r") ? ValoresR : ValoresS;
-				let aux = arrAux[i-1];
-				arrAux[i-1] = ("(" + arrAux[i-1] + " && " + valoresAUX[posicionFila] + ")").toString();
-				arrAux[i] = "||";
-				arrAux[i+1] = ("(" + "!" + aux + "&&" + " !" + valoresAUX[posicionFila] + ")").toString();
-				i++;
-
+				arrAux[i - 1] += ")";
+				for(let j = 0;j<=i;j++){
+					if(arrAux[i - j] == ")" || j == i){
+						arrAux[i - j] = "!(" + arrAux[i-j];
+					}
+				}
+				arrAux[i] = "^";
 			}
 		}
 	}
