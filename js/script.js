@@ -26,6 +26,10 @@ function mostrarEnPantalla(arg){
 		if(arg == "AC"){
 			screen.value = "";
 			state = "";
+			/*p=false
+			q=false
+			r=false
+			s=false*/
 		}
 		if(arg == "DEL"){
 			let nScreen = screen.value.substr(0,screen.value.length-1);
@@ -38,11 +42,26 @@ function mostrarEnPantalla(arg){
 			cleanScreen('r');
 			cleanScreen('s');
 			cleanScreen('func');
-			if(screen.value.indexOf("p") != -1){ mostrarF('p');}
-			if(screen.value.indexOf("q") != -1){ mostrarF('q');}
-			if(screen.value.indexOf("r") != -1){ mostrarF('r');}
-			if(screen.value.indexOf("s") != -1){ mostrarF('s');}
+			if(screen.value.indexOf("p") != -1){ 
+				mostrarF('p');
+				//p = true
+			}
+			if(screen.value.indexOf("q") != -1){ 
+				mostrarF('q');
+				//q=true
+			}
+			if(screen.value.indexOf("r") != -1){ 
+				mostrarF('r');
+				//r=true
+			}
+			if(screen.value.indexOf("s") != -1){ 
+				mostrarF('s');
+				//s=true
+			}
 			res();
+			document.getElementById("map1").style.display = "none"
+			document.getElementById("map2").style.display = "none"
+			document.getElementById("map3").style.display = "none"
 		}
 	}
 
@@ -220,3 +239,67 @@ function res(){
 
 	resetearValores();
 }
+
+//Mapa Kar
+
+function MostrarKar(){
+	var nv = cuantasVar();
+	if(nv == 2){
+		document.getElementById("map1").style.display = ""
+	}
+	else if(nv == 3){
+		document.getElementById("map2").style.display = ""
+	}
+	else if(nv == 4){
+		document.getElementById("map3").style.display = ""
+	}
+	Varr()
+}
+
+/*function Varr(){
+let variables = "P \ Q";
+
+var p;
+var q;
+var r;
+var s;
+
+if(total == 2){
+	if(p==true && q ==true){
+		variables= "P \ Q"
+	}
+	if(p==true && r ==true){
+		variables= "P \ R"
+	}
+	if(p==true && s ==true){
+		variables= "P \ S"
+	}
+	if(q==true && r ==true){
+		variables= "Q \ R"
+	}
+	if(q==true && s ==true){
+		variables= "Q \ S"
+	}
+	if(r==true && s ==true){
+		variables= "R \ S"
+	}
+}
+else if(total == 3){
+	if(p==true && q ==true && s==true){
+		variables= "P \ QS"
+	}
+	else if(p==true && q ==true && r==true){
+		variables= "P \ QR"
+	}
+	else if(p==true && r ==true && s==true){
+		variables= "P \ RS"
+	}
+	else if(q==true && r ==true && s==true){
+		variables= "Q \ RS"
+	}
+}
+else if(total == 4){
+	variables= "PQ \ RS"
+}
+document.getElementById("var").value=variables
+}*/

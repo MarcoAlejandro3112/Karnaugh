@@ -1,0 +1,37 @@
+
+.main-container{
+    margin: 150px auto;
+    width: 600px;
+}
+
+table{
+    background-color: white;
+    text-align: left;
+    width: 100%;
+}
+
+th{
+    text-align: center;
+    font-family: "Roboto",sans-serif;
+    font-size: 2rem;
+    background-color: orangered;
+    border-bottom: solid 1.5px #000000;
+    border-top: solid 1.5px #000000; 
+    border-left: solid 1.5px #000000;
+    border-right: solid 1.5px #000000;
+    color: white;
+    padding: 20px;
+}
+
+td{
+    text-align: center;
+    font-family: "Roboto",sans-serif;
+    font-size: 2rem;
+    background-color: white;
+    border-bottom: solid 1.5px #000000;
+    border-top: solid 1.5px #000000; 
+    border-left: solid 1.5px #000000;
+    border-right: solid 1.5px #000000;
+    color: black;
+    padding: 20px;
+}
