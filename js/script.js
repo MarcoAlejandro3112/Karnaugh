@@ -37,6 +37,10 @@ function mostrarEnPantalla(arg){
 			state = screen.value.substr(screen.value.length-1,screen.value.length);
 		}
 		if(arg == "="){
+			
+			//REMOVER LOS RESULTADOS DEL LOCALSTORAGE
+			localStorage.removeItem('resultados')
+
 			cleanScreen('p');
 			cleanScreen('q');
 			cleanScreen('r');
@@ -173,6 +177,8 @@ resetearValores = () => {
 	ValoresR = [];
 }
 resolverOperacion = (enunciado,posicionFila) => {
+	
+
 	let arrAux = enunciado.split("");
 	console.log("Valores Q: " + ValoresQ);
 	for(i = 0;i<enunciado.length;i++){
@@ -180,6 +186,7 @@ resolverOperacion = (enunciado,posicionFila) => {
 			let valores = (arrAux[i] == "p") ? ValoresP : (arrAux[i] == "q") ? ValoresQ : (arrAux[i] == "r") ? ValoresR : ValoresS;
 			console.log("Valores: " + valores);
 			arrAux[i] = valores[posicionFila];
+
 		} else if (arrAux[i] != "(" && arrAux[i] != ")"){
 			if(arrAux[i] == "v"){
 				arrAux[i] = " || ";
@@ -217,10 +224,22 @@ resolverOperacion = (enunciado,posicionFila) => {
 				arrAux[i] = "^";
 			}
 		}
+
 	}
-	console.log(arrAux);
+
 	let nuevoEnunciado = arrAux.join("");
 	console.log("ENUNCIADO: " + nuevoEnunciado);
+
+	let resultados_storage = JSON.parse(localStorage.getItem('resultados'))
+	if(!resultados_storage) {
+		resultados_storage = []
+		resultados_storage.push(eval(nuevoEnunciado) ? '1': '0')
+	} else {
+		resultados_storage.push(eval(nuevoEnunciado) ? '1': '0')
+	}
+	
+	localStorage.setItem('resultados', JSON.stringify(resultados_storage))
+
 	return (eval(nuevoEnunciado)) ? "V" : "F";
 }
 mostrarResultados = () => {
@@ -232,11 +251,10 @@ mostrarResultados = () => {
 		ulF.appendChild(liF);	
 	}
 }
+
 function res(){
 	cambiarPos(5,5);
 	mostrarResultados();
-
-
 	resetearValores();
 }
 
@@ -244,14 +262,45 @@ function res(){
 
 function MostrarKar(){
 	var nv = cuantasVar();
+	let valores = JSON.parse(localStorage.getItem('valores'))
+	let resultados = JSON.parse(localStorage.getItem('resultados'))
+
 	if(nv == 2){
 		document.getElementById("map1").style.display = ""
+		document.getElementById("map1-11").innerText = resultados[3]
+		document.getElementById("map1-12").innerText = resultados[2]
+		document.getElementById("map1-21").innerText = resultados[1]
+		document.getElementById("map1-22").innerText = resultados[0]
 	}
 	else if(nv == 3){
 		document.getElementById("map2").style.display = ""
+		document.getElementById("map2-11").innerText = resultados[7]
+		document.getElementById("map2-12").innerText = resultados[6]
+		document.getElementById("map2-13").innerText = resultados[4]
+		document.getElementById("map2-14").innerText = resultados[5]
+		document.getElementById("map2-21").innerText = resultados[3]
+		document.getElementById("map2-22").innerText = resultados[2]
+		document.getElementById("map2-23").innerText = resultados[0]
+		document.getElementById("map2-24").innerText = resultados[1]
 	}
 	else if(nv == 4){
 		document.getElementById("map3").style.display = ""
+		document.getElementById("map3-11").innerText = resultados[15]
+		document.getElementById("map3-12").innerText = resultados[14]
+		document.getElementById("map3-13").innerText = resultados[12]
+		document.getElementById("map3-14").innerText = resultados[13]
+		document.getElementById("map3-21").innerText = resultados[11]
+		document.getElementById("map3-22").innerText = resultados[10]
+		document.getElementById("map3-23").innerText = resultados[8]
+		document.getElementById("map3-24").innerText = resultados[9]
+		document.getElementById("map3-31").innerText = resultados[3]
+		document.getElementById("map3-32").innerText = resultados[2]
+		document.getElementById("map3-33").innerText = resultados[0]
+		document.getElementById("map3-34").innerText = resultados[1]
+		document.getElementById("map3-41").innerText = resultados[7]
+		document.getElementById("map3-42").innerText = resultados[6]
+		document.getElementById("map3-43").innerText = resultados[4]
+		document.getElementById("map3-44").innerText = resultados[5]
 	}
 	Varr()
 }
