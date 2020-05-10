@@ -171,3 +171,13 @@ div.primeraFila ul li{
  	background-color: #7B160C;
  	transition: 1s;
  }
+/** 
+ * ===================================================================
+ * 3.2.2 Simplificar
+ *
+ * ------------------------------------------------------------------- 
+ */
+ div.cajaSimplificar p{
+ 	text-align: center;
+ 	font-family: "Roboto",sans-serif;
+ }
