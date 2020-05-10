@@ -538,6 +538,10 @@ function simplificar(){
 				    }else {
 				    	result += "R' + ";
 				    }
+				    yaTienenComb[0][0] = true;
+					yaTienenComb[1][0] = true;
+					yaTienenComb[0][3] = true;
+					yaTienenComb[1][3] = true;
 				}
 			}
 			if(yaTienenComb[0][0] === false || yaTienenComb[0][1] === false || yaTienenComb[1][0] === false || yaTienenComb[1][1] === false){
@@ -547,6 +551,10 @@ function simplificar(){
 				    }else {
 				    	result += "Q' + ";
 				    }
+				    yaTienenComb[0][0] = true;
+					yaTienenComb[0][1] = true;
+					yaTienenComb[1][0] = true;
+					yaTienenComb[1][1] = true;
 				}
 		    }
 		    if(yaTienenComb[0][1] === false || yaTienenComb[0][2] === false || yaTienenComb[1][1] === false || yaTienenComb[1][2] === false){
@@ -556,6 +564,10 @@ function simplificar(){
 				    }else {
 				    	result += "R + ";
 				    }
+				    yaTienenComb[0][1] = true;
+					yaTienenComb[0][2] = true;
+					yaTienenComb[1][1] = true;
+					yaTienenComb[1][2] = true;
 				}
 		    }
 		    if(yaTienenComb[0][2] === false || yaTienenComb[0][3] === false || yaTienenComb[1][2] === false || yaTienenComb[1][3] === false){
@@ -565,6 +577,10 @@ function simplificar(){
 				    }else {
 				    	result += "Q + ";
 				    }
+				    yaTienenComb[0][2] = true;
+					yaTienenComb[0][3] = true;
+					yaTienenComb[1][2] = true;
+					yaTienenComb[1][3] = true;
 				}
 		    }
 		    if(yaTienenComb[0][0] === false || yaTienenComb[0][1] === false || yaTienenComb[0][2] === false || yaTienenComb[0][3] === false){
@@ -574,6 +590,10 @@ function simplificar(){
 		    	    }else {
 		    	    	result += "P' +";
 		    	    }
+		    	    yaTienenComb[0][0] = true;
+					yaTienenComb[0][1] = true;
+					yaTienenComb[0][2] = true;
+					yaTienenComb[0][3] = true;
 		    	}
 		    }
 		    if(yaTienenComb[1][0] === false || yaTienenComb[1][1] === false || yaTienenComb[1][2] === false || yaTienenComb[1][3] === false){
@@ -583,6 +603,10 @@ function simplificar(){
 		    	    }else {
 		    	    	result += "P +";
 		    	    }
+		    	    yaTienenComb[1][0] = true;
+					yaTienenComb[1][1] = true;
+					yaTienenComb[1][2] = true;
+					yaTienenComb[1][3] = true;
 		    	}
 		    }
 		}
@@ -615,6 +639,8 @@ function simplificar(){
 					if(cuantasVar() == 2){
 						text += (combinaciones2[i] == 0) ? "P'" : "P";
 					}
+					yaTienenComb[i][j] = true;
+					yaTienenComb[i][j+1] = true;
 					result += (text + " +");
 				}
 				if(mapaKar[i][j] == mapaKar[i][j-1] && j - 1 >= 0){
@@ -639,30 +665,53 @@ function simplificar(){
 					if(cuantasVar() == 2){
 						text += (combinaciones2[i] == 0) ? "P'" : "P";
 					}
+					yaTienenComb[i][j] = true;
+					yaTienenComb[i][j-1] = true;
 					result += (text + " +");
 				}
 				if(mapaKar[i][j] == mapaKar[i+1][j] && i + 1 <= filas){
 					let text = "";
 					if(cuantasVar() == 4){
-						text += (combinaciones[i][0] == 0) ? "P'" : "P";
-						text += (combinaciones[i][1] == 0) ? "Q'" : "Q";
-						if(combinaciones[j][0] == combinaciones[j-1][0]){
-							text += (combinaciones[j][0] == 0) ? "R'" : "R";
+						if(combinaciones[i][0] == combinaciones[i+1][0]){
+							text += (combinaciones[i][0] == 0) ? "P'" : "P";
 						} else {
-							text += (combinaciones[j][1] == 0) ? "S'" : "S";
+							text += (combinaciones[i][1] == 0) ? "Q'" : "Q";
 						}
+						text += (combinaciones[j][0] == 0) ? "R'" : "R";
+						text += (combinaciones[j][1] == 0) ? "S'" : "S";
 					}
 					if(cuantasVar() == 3){
-						text += (combinaciones2[i] == 0) ? "P'" : "P";
-						if(combinaciones[j][0] == combinaciones[j-1][0]){
-							text += (combinaciones[j][0] == 0) ? "Q'" : "Q";
-						} else {
-							text += (combinaciones[j][1] == 0) ? "R'" : "R";
-						}
+						text += (combinaciones[j][0] == 0) ? "Q'" : "Q";
+						text += (combinaciones[j][1] == 0) ? "R'" : "R";
 					}
 					if(cuantasVar() == 2){
-						text += (combinaciones2[i] == 0) ? "P'" : "P";
+						text += (combinaciones2[j] == 0) ? "Q'" : "Q";
 					}
+					yaTienenComb[i][j] = true;
+					yaTienenComb[i+1][j] = true;
+					result += (text + " +");
+				}
+				console.log("mapaKar[" + i + "]" + "[" + j + "]");
+				if(i - 1 >= 0 && mapaKar[i][j] == mapaKar[i-1][j]){
+					let text = "";
+					if(cuantasVar() == 4){
+						if(combinaciones[i][0] == combinaciones[i-1][0]){
+							text += (combinaciones[i][0] == 0) ? "P'" : "P";
+						} else {
+							text += (combinaciones[i][1] == 0) ? "Q'" : "Q";
+						}
+						text += (combinaciones[j][0] == 0) ? "R'" : "R";
+						text += (combinaciones[j][1] == 0) ? "S'" : "S";
+					}
+					if(cuantasVar() == 3){
+						text += (combinaciones[j][0] == 0) ? "Q'" : "Q";
+						text += (combinaciones[j][1] == 0) ? "R'" : "R";
+					}
+					if(cuantasVar() == 2){
+						text += (combinaciones2[j] == 0) ? "Q'" : "Q";
+					}
+					yaTienenComb[i][j] = true;
+					yaTienenComb[i-1][j] = true;
 					result += (text + " +");
 				}
 			}
