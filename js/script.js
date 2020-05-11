@@ -794,6 +794,100 @@ function simplificar(){
 			}
 		}
 	}
+	if(cuantasVar() == 4){
+	if(yaTienenComb[2][0] === false && mapaKar[2][0] == 1){
+		result += "PQR'S' + ";
+	}
+	if(yaTienenComb[2][1] === false && mapaKar[2][1] == 1){
+		result += "PQR'S + ";
+	}
+	if(yaTienenComb[2][2] === false && mapaKar[2][2] == 1){
+		result += "PQRS + "; 
+	}
+	if(yaTienenComb[2][3] === false && mapaKar[2][3] == 1){
+		result += "PQRS' + "; 
+	}
+	if(yaTienenComb[3][0] === false && mapaKar[3][0] == 1){
+		result += "PQ'R'S' + "; 
+	}
+	if(yaTienenComb[3][1] === false && mapaKar[3][1] == 1){
+		result += "PQ'R'S + "; 
+	}
+	if(yaTienenComb[3][2] === false && mapaKar[3][2] == 1){
+		result += "PQ'RS + "; 
+	}
+	if(yaTienenComb[3][3] === false && mapaKar[3][3] == 1){
+		result += "PQ'RS' + "; 
+	}
+	}
+	if(cuantasVar() == 4 || cuantasVar() == 3){
+		if(yaTienenComb[0][2] === false && mapaKar[0][2] == 1){
+		if(cuantasVar() == 4){
+			result += "P'Q'RS + ";
+		} else {
+			result += "P'QR + ";
+		}
+	    }
+	    if(yaTienenComb[0][3] === false && mapaKar[0][3] == 1){
+		if(cuantasVar() == 4){
+			result += "P'Q'RS' + ";
+		} else {
+			result += "P'QR' + ";
+		} 
+	    }
+	    if(yaTienenComb[1][2] === false && mapaKar[1][2] == 1){
+		if(cuantasVar() == 4){
+			result += "P'QRS + ";
+		} else {
+			result += "PQR + ";
+		} 
+		}
+	    if(yaTienenComb[1][3] === false && mapaKar[1][3] == 1){
+		if(cuantasVar() == 4){
+			result += "P'QRS' + ";
+		} else {
+			result += "P'QR' + ";
+		}
+	    }
+	} 
+	if(cuantasVar() == 4 || cuantasVar() == 3 || cuantasVar() == 2){
+		if(yaTienenComb[0][0] === false && mapaKar[0][0] == 1){
+			if(cuantasVar() == 4){
+				result += "P'Q'R'S' + ";
+			} else if(cuantasVar() == 3){
+				result += "P'Q'R' + ";
+			} else {
+				result += "P'Q' + ";
+			}
+	    }
+	    if(yaTienenComb[0][1] === false && mapaKar[0][1] == 1){
+			if(cuantasVar() == 4){
+				result += "P'Q'R'S + ";
+			} else if(cuantasVar() == 3){
+				result += "P'Q'R + ";
+			} else {
+				result += "P'Q + ";
+			}
+	    }
+	    if(yaTienenComb[1][0] === false && mapaKar[1][0] == 1){
+		if(cuantasVar() == 4){
+			result += "P'QR'S' + ";
+		} else if(cuantasVar() == 3){
+			result += "PQ'R' + ";
+		} else {
+			result += "PQ' + ";
+		}
+	    }
+	    if(yaTienenComb[1][1] === false && mapaKar[1][1] == 1){
+		if(cuantasVar() == 4){
+			result += "P'QR'S + ";
+		} else if(cuantasVar() == 3){
+			result += "PQ'R + ";
+		} else {
+			result += "PQ + ";
+		}
+	    }
+	}
 	console.log(result);
 	let resultn = result.slice(0,-2);
 	return resultn;
