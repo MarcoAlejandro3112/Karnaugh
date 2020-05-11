@@ -420,7 +420,7 @@ function simplificar(){
 					yaTienenComb[3][3] = true;
 				}
 			}
-			console.log("MAPAKAR1,0 : " + yaTienenComb[1][0] + " yaTienenComb2,0: " + yaTienenComb[2][0] + "yaTienenComb1,3: " + yaTienenComb[1][3] + " yaTienenComb2,3: " + yaTienenComb[2][3]);
+			
 			if(yaTienenComb[1][0] === false || yaTienenComb[2][0] === false || yaTienenComb[1][3] === false || yaTienenComb[2][3] === false){
 				if(mapaKar[1][0] == 1 && (mapaKar[1][0] == mapaKar[2][0] && mapaKar[1][0] == mapaKar[1][3] && mapaKar[1][0] == mapaKar[2][3])){
 					result += "QS' + ";
@@ -428,6 +428,15 @@ function simplificar(){
 					yaTienenComb[2][0] = true;
 					yaTienenComb[1][3] = true;
 					yaTienenComb[2][3] = true;
+				}
+		    }
+		    if(yaTienenComb[1][0] === false || yaTienenComb[2][0] === false || yaTienenComb[1][1] === false || yaTienenComb[2][1] === false){
+				if(mapaKar[1][0] == 1 && (mapaKar[1][0] == mapaKar[2][0] && mapaKar[1][0] == mapaKar[1][1] && mapaKar[1][0] == mapaKar[2][1])){
+					result += "QR' + ";
+					yaTienenComb[1][0] = true;
+					yaTienenComb[2][0] = true;
+					yaTienenComb[1][1] = true;
+					yaTienenComb[2][1] = true;
 				}
 		    }
 		    if(yaTienenComb[2][0] === false || yaTienenComb[3][0] === false || yaTienenComb[2][3] === false || yaTienenComb[3][3] === false){
@@ -477,7 +486,7 @@ function simplificar(){
 		    }
 		    if(yaTienenComb[2][0] === false || yaTienenComb[2][1] === false || yaTienenComb[2][2] === false || yaTienenComb[2][3] === false){
 		    	if(mapaKar[2][0] == 1 && (mapaKar[2][0] == mapaKar[2][1] && mapaKar[2][0] == mapaKar[2][2] && mapaKar[2][0] == mapaKar[2][3])){
-		    		result += "PQ +";
+		    		result += "PQ + ";
 		    		yaTienenComb[2][0] = true;
 					yaTienenComb[2][1] = true;
 					yaTienenComb[2][2] = true;
@@ -486,7 +495,7 @@ function simplificar(){
 		    }
 		    if(yaTienenComb[3][0] === false || yaTienenComb[3][1] === false || yaTienenComb[3][2] === false || yaTienenComb[3][3] === false){
 		    	if(mapaKar[3][0] == 1 && (mapaKar[3][0] == mapaKar[3][1] && mapaKar[3][0] == mapaKar[3][2] && mapaKar[3][0] == mapaKar[3][3])){
-		    		result += "PQ' +";
+		    		result += "PQ' + ";
 		    		yaTienenComb[3][0] = true;
 					yaTienenComb[3][1] = true;
 					yaTienenComb[3][2] = true;
@@ -495,7 +504,7 @@ function simplificar(){
 		    }
 		    if(yaTienenComb[0][0] === false || yaTienenComb[1][0] === false || yaTienenComb[2][0] === false || yaTienenComb[3][0] === false){
 		    	if(mapaKar[0][0] == 1 && (mapaKar[0][0] == mapaKar[1][0] && mapaKar[0][0] == mapaKar[2][0] && mapaKar[0][0] == mapaKar[3][0])){
-		    		result += "R'S' +";
+		    		result += "R'S' + ";
 		    		yaTienenComb[0][0] = true;
 					yaTienenComb[1][0] = true;
 					yaTienenComb[2][0] = true;
@@ -504,7 +513,7 @@ function simplificar(){
 		    }
 		    if(yaTienenComb[0][1] === false || yaTienenComb[1][1] === false || yaTienenComb[2][1] === false || yaTienenComb[3][1] === false){
 		    	if(mapaKar[0][1] == 1 && (mapaKar[0][1] == mapaKar[1][1] && mapaKar[0][1] == mapaKar[2][1] && mapaKar[0][1] == mapaKar[3][1])){
-		    		result += "R'S +";
+		    		result += "R'S + ";
 		    		yaTienenComb[0][1] = true;
 					yaTienenComb[1][1] = true;
 					yaTienenComb[2][1] = true;
@@ -513,7 +522,7 @@ function simplificar(){
 		    }
 		    if(yaTienenComb[0][2] === false || yaTienenComb[1][2] === false || yaTienenComb[2][2] === false || yaTienenComb[3][2] === false){
 		    	if(mapaKar[0][2] == 1 && (mapaKar[0][2] == mapaKar[1][2] && mapaKar[0][2] == mapaKar[2][2] && mapaKar[0][2] == mapaKar[3][2])){
-		    		result += "RS +";
+		    		result += "RS + ";
 		    		yaTienenComb[0][2] = true;
 					yaTienenComb[1][2] = true;
 					yaTienenComb[2][2] = true;
@@ -522,7 +531,7 @@ function simplificar(){
 		    }
 		    if(yaTienenComb[0][3] === false || yaTienenComb[1][3] === false || yaTienenComb[2][3] === false || yaTienenComb[3][3] === false){
 		    	if(mapaKar[0][3] == 1 && (mapaKar[0][3] == mapaKar[1][3] && mapaKar[0][3] == mapaKar[2][3] && mapaKar[0][3] == mapaKar[3][3])){
-		    		result += "RS' +";
+		    		result += "RS' + ";
 		    		yaTienenComb[0][3] = true;
 					yaTienenComb[1][3] = true;
 					yaTienenComb[2][3] = true;
@@ -588,7 +597,7 @@ function simplificar(){
 		    		if(cuantasVar() == 4){
 		    			result += "P'Q' +";
 		    	    }else {
-		    	    	result += "P' +";
+		    	    	result += "P' + ";
 		    	    }
 		    	    yaTienenComb[0][0] = true;
 					yaTienenComb[0][1] = true;
@@ -599,9 +608,9 @@ function simplificar(){
 		    if(yaTienenComb[1][0] === false || yaTienenComb[1][1] === false || yaTienenComb[1][2] === false || yaTienenComb[1][3] === false){
 		    	if(mapaKar[1][0] == 1 && (mapaKar[1][0] == mapaKar[1][1] && mapaKar[1][0] == mapaKar[1][2] && mapaKar[1][0] == mapaKar[1][3])){
 		    		if(cuantasVar() == 4){
-		    			result += "P'Q +";
+		    			result += "P'Q + ";
 		    	    }else {
-		    	    	result += "P +";
+		    	    	result += "P + ";
 		    	    }
 		    	    yaTienenComb[1][0] = true;
 					yaTienenComb[1][1] = true;
@@ -617,7 +626,7 @@ function simplificar(){
 	for(let i = 0;i<filas;i++){
 		for(let j = 0;j<columnas;j++){
 			if(yaTienenComb[i][j] === false && mapaKar[i][j] == 1){
-				if(mapaKar[i][j] == mapaKar[i][j+1] && j + 1<= columnas){
+				if(j + 1 < columnas && mapaKar[i][j] == mapaKar[i][j+1]){
 					let text = "";
 					if(cuantasVar() == 4){
 						text += (combinaciones[i][0] == 0) ? "P'" : "P";
@@ -641,9 +650,9 @@ function simplificar(){
 					}
 					yaTienenComb[i][j] = true;
 					yaTienenComb[i][j+1] = true;
-					result += (text + " +");
+					result += (text + " + ");
 				}
-				if(mapaKar[i][j] == mapaKar[i][j-1] && j - 1 >= 0){
+				if(j - 1 >= 0 && mapaKar[i][j] == mapaKar[i][j-1]){
 					let text = "";
 					if(cuantasVar() == 4){
 						text += (combinaciones[i][0] == 0) ? "P'" : "P";
@@ -667,9 +676,9 @@ function simplificar(){
 					}
 					yaTienenComb[i][j] = true;
 					yaTienenComb[i][j-1] = true;
-					result += (text + " +");
+					result += (text + " + ");
 				}
-				if(mapaKar[i][j] == mapaKar[i+1][j] && i + 1 <= filas){
+				if(i + 1 < filas && mapaKar[i][j] == mapaKar[i+1][j]){
 					let text = "";
 					if(cuantasVar() == 4){
 						if(combinaciones[i][0] == combinaciones[i+1][0]){
@@ -689,9 +698,8 @@ function simplificar(){
 					}
 					yaTienenComb[i][j] = true;
 					yaTienenComb[i+1][j] = true;
-					result += (text + " +");
+					result += (text + " + ");
 				}
-				console.log("mapaKar[" + i + "]" + "[" + j + "]");
 				if(i - 1 >= 0 && mapaKar[i][j] == mapaKar[i-1][j]){
 					let text = "";
 					if(cuantasVar() == 4){
@@ -712,13 +720,83 @@ function simplificar(){
 					}
 					yaTienenComb[i][j] = true;
 					yaTienenComb[i-1][j] = true;
-					result += (text + " +");
+					result += (text + " + ");
 				}
 			}
 		}
 	}
+	//Rectangulos de 2 doblados
+	if(cuantasVar() == 4){
+		if(yaTienenComb[0][0] === false || yaTienenComb[3][0] === false){
+			if(mapaKar[0][0] == 1 && (mapaKar[0][0] == mapaKar[3][0])){
+				result += "Q'R'S' + ";
+				yaTienenComb[0][0] = true;
+				yaTienenComb[3][0] = true;
+			}
+		}
+		if(yaTienenComb[0][1] === false || yaTienenComb[3][1] === false){
+			if(mapaKar[0][1] == 1 && (mapaKar[0][1] == mapaKar[3][1])){
+				result += "Q'R'S + ";
+				yaTienenComb[0][1] = true;
+				yaTienenComb[3][1] = true;
+			}
+		}
+		if(yaTienenComb[0][2] === false || yaTienenComb[3][2] === false){
+			if(mapaKar[0][2] == 1 && (mapaKar[0][2] == mapaKar[3][2])){
+				result += "Q'RS + ";
+				yaTienenComb[0][2] = true;
+				yaTienenComb[3][2] = true;
+			}
+		}
+		if(yaTienenComb[0][3] === false || yaTienenComb[3][3] === false){
+			if(mapaKar[0][3] == 1 && (mapaKar[0][3] == mapaKar[3][3])){
+				result += "Q'RS' + ";
+				yaTienenComb[0][3] = true;
+				yaTienenComb[3][3] = true;
+			}
+		}
+		if(yaTienenComb[2][0] === false || yaTienenComb[2][3] === false){
+			if(mapaKar[2][0] == 1 && (mapaKar[2][0] == mapaKar[2][3])){
+				result += "PQS' + ";
+				yaTienenComb[2][0] = true;
+				yaTienenComb[2][3] = true;
+			}
+		}
+		if(yaTienenComb[3][0] === false || yaTienenComb[3][3] === false){
+			if(mapaKar[3][0] == 1 && (mapaKar[3][0] == mapaKar[3][3])){
+				result += "P'QS' + ";
+				yaTienenComb[3][0] = true;
+				yaTienenComb[3][3] = true;
+			}
+		}
+	}
+	if(cuantasVar() == 4 || cuantasVar() == 3){
+		if(yaTienenComb[0][0] === false || yaTienenComb[0][3] === false){
+			if(mapaKar[0][0] == 1 && (mapaKar[0][0] == mapaKar[0][3])){
+				if(cuantasVar() == 4){
+					result += "P'Q'S' + ";
+			    } else {
+			    	result += "P'S + ";
+			    }
+				yaTienenComb[0][0] = true;
+				yaTienenComb[0][3] = true;
+			}
+		}
+		if(yaTienenComb[1][0] === false || yaTienenComb[1][3] === false){
+			if(mapaKar[1][0] == 1 && (mapaKar[1][0] == mapaKar[1][3])){
+				if(cuantasVar() == 4){
+					result += "PS' + ";
+			    } else {
+			    	result += "P'QS' + ";
+			    }
+				yaTienenComb[1][0] = true;
+				yaTienenComb[1][3] = true;
+			}
+		}
+	}
 	console.log(result);
-	return result;
+	let resultn = result.slice(0,-2);
+	return resultn;
 }
 function mostrarSimplificacion(){
 	let textoSimplificacion = document.getElementById("simplificacion");
@@ -727,6 +805,7 @@ function mostrarSimplificacion(){
 function res(){
 	cambiarPos(5,5);
 	mostrarResultados();
+	MostrarKar();
 	resetearValores();
 }
 
