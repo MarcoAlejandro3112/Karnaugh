@@ -180,7 +180,6 @@ resolverOperacion = (enunciado,posicionFila) => {
 	
 
 	let arrAux = enunciado.split("");
-	console.log("Valores Q: " + ValoresQ);
 	for(i = 0;i<enunciado.length;i++){
 		if(arrAux[i] == "p" || arrAux[i] == "q" || arrAux[i] == "r" || arrAux[i] == "s"){
 			let valores = (arrAux[i] == "p") ? ValoresP : (arrAux[i] == "q") ? ValoresQ : (arrAux[i] == "r") ? ValoresR : ValoresS;
@@ -194,34 +193,6 @@ resolverOperacion = (enunciado,posicionFila) => {
 				arrAux[i] = " && ";
 			} else if(arrAux[i] == "~"){
 				arrAux[i] = " !";
-			} else if(arrAux[i] == "→"){
-				if(arrAux[i - 2] != "(" && i - 1 > 1){
-					arrAux[i - 1] += ")";
-				}
-				if((arrAux[i - 1]).toString().indexOf(")") != -1){
-					for(let j = 0;j<=i;j++){
-						if(arrAux[i - j] == ")" || j == i ){
-							arrAux[i - j] = "!(" + arrAux[i-j];
-						}
-					}
-				} else {
-					arrAux[i-1] = "!" + arrAux[i-1];
-				}
-				arrAux[i] = " || ";
-			} else if(arrAux[i] == "↔"){
-				if(arrAux[i - 2] != "(" && i - 1 > 1){
-					arrAux[i - 1] += ")";
-				}
-				if((arrAux[i - 1]).toString().indexOf(")") != -1){
-					for(let j = 0;j<=i;j++){
-						if(arrAux[i - j] == ")" || j == i ){
-							arrAux[i - j] = "!(" + arrAux[i-j];
-						}
-					}
-				} else {
-					arrAux[i-1] = "!" + arrAux[i-1];
-				}
-				arrAux[i] = "^";
 			}
 		}
 

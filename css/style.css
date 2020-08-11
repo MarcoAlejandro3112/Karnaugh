@@ -116,6 +116,10 @@ main > div{
 	font-family: "Roboto",sans-serif;
 }
 
+.cajaFormulario form input[class="equal"]{
+	width: 100%;
+}
+
 .cajaFormulario form input:hover{
 	opacity: 0.8;
 }
